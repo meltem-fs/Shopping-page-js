@@ -66,9 +66,21 @@ products.addEventListener("click", (e) => {
     if (confirm("product will be removed!")) {
       e.target.parentElement.parentElement.parentElement.remove();
       calculateTotal();
+      card();
     }
   } else if (e.target.nextElementSibling.innerText <= 1) {
-  
     e.target.parentElement.parentElement.parentElement.remove();
+    calculateTotal();
+    card();
   }
 });
+
+const card = () => {
+  if(!document.querySelector(".product")) {
+    const cont = document.getElementById("product-painel")
+      cont.innerHTML = `<div class="cardss">
+                     <h1>your card is empty</h2>
+                     <a href="index.html"><button>alışverişe geri dön</button></a>
+                </div>`;
+  }
+}
